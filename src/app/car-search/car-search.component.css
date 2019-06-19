@@ -1,0 +1,18 @@
+.car-search{
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.car-search h1{
+	margin: 0;
+    font-weight: 500;
+    font-size: 24px;
+}
+.car-search-box{
+    padding: 15px 0 0 0;
+    background: #FAFAFA;
+    margin: 30px 0;
+    width: 100%;
+}

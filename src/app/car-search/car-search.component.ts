@@ -10,6 +10,7 @@ export class CarSearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  	
   }
 
 }

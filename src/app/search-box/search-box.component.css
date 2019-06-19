@@ -1,0 +1,24 @@
+.searchBox{
+	width: 650px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.searchBox button{
+	border: unset;
+    background: #ea596a;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+    padding: 9px 26px;
+    border-radius: 2px;
+    margin: -1.25em 0 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+    outline: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+.searchBox button:hover{
+	cursor: pointer;
+}
