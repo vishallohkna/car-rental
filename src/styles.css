@@ -6,5 +6,6 @@ body{
 	font-family: 'Roboto', sans-serif;
 }
 h1, h2, h3, h4, p, label{
+	margin: 0;
 	color: #293031;
 }

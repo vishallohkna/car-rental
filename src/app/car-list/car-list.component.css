@@ -4,3 +4,87 @@
     margin: 0;
     width: 100%;
 }
+.car-list{
+	display: flex;
+    flex-flow: column;
+    width: 80%;
+    margin: auto;
+}
+.car-details{
+	display: flex;
+    flex-flow: row;
+    align-items: center;
+    height: 200px;
+    margin: 20px 0;
+    padding: 0 30px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 6px rgba(195,195,195,0.26);
+    transition: all 0.3s ease;
+}
+.car-details:hover{
+	cursor: pointer;
+	box-shadow: 0 0px 10px rgba(195,195,195,0.26);
+}
+.car-details.active{
+	border: 1px solid #ea596a;
+}
+.car-details .details-left{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-details .details-left img{
+	height: 150px;
+}
+.car-details .details-right{
+	display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding: 0 0 0 20px;
+    border-left: 1px solid rgba(195,195,195,0.26);
+}
+.car-details .details-right .block-row{
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.car-details .details-right .block-row h1{
+	font-size: 26px;
+}
+.car-details .details-right .block-row p{
+	font-size: 26px;
+	color: #ea596a;
+}
+.car-details .details-right .block{
+	width: 50%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0 0 0;
+}
+.car-details .details-right .block p{
+	display: flex;
+	align-items: center;
+}
+.car-details .details-right .block p i{
+	font-size: 20px;
+	margin-right: 3px;
+	color: #ea596a;
+}
+.car-details .details-right .block p span{
+	margin-right: 3px;
+	color: #ea596a;
+}
+.ngx-pagination{
+	padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 10px 0 50px 0;
+}
+.ngx-pagination .current.ng-star-inserted{
+	background: #ea596a !important;
+}

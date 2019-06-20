@@ -3,9 +3,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { MatFormFieldModule, MatSelectModule, MatInputModule, MatRadioModule, MatIconModule, MatCheckboxModule } from '@angular/material';
+import { MatFormFieldModule, MatSelectModule, MatInputModule, MatRadioModule, MatCheckboxModule } from '@angular/material';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -36,11 +37,11 @@ const routes: Routes = [
     MatSelectModule,
     MatInputModule,
     MatRadioModule,
-    MatIconModule,
     MatCheckboxModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     FormsModule,
+    NgxPaginationModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

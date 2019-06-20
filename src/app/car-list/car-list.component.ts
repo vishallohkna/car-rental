@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import * as $ from 'jquery';
 
 import { DataExchangeService } from '../services/data-exchange.service';
 
 @Component({
   selector: 'app-car-list',
   templateUrl: './car-list.component.html',
-  styleUrls: ['./car-list.component.css']
+  styleUrls: ['./car-list.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CarListComponent implements OnInit {
 
@@ -28,13 +30,11 @@ export class CarListComponent implements OnInit {
     (value) => {
       this.selectedLocation = value;
       this.carDataToPresent = this.filterCarData(value, this.startDate);
-      console.log(this.carDataToPresent);
     });
     this.dataService.getSelectedDate().subscribe(
     (value) => {
       this.startDate = value;
       this.carDataToPresent = this.filterCarData(this.selectedLocation, value);
-      console.log(this.carDataToPresent);
     });
   }
 
@@ -42,6 +42,11 @@ export class CarListComponent implements OnInit {
   	return this.carData.filter(object => {
   		return object['location'] == location;
   	});
+  }
+
+  selectedCar(event){
+    $('.car-details').removeClass('active');
+    $(event.currentTarget).addClass('active');
   }
 
 }

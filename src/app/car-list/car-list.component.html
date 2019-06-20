@@ -1,3 +1,37 @@
 <div class="car-search-box">
 	<app-search-box></app-search-box>
 </div>
+<div class="car-list">
+	<div class="car-details" *ngFor="let car of carDataToPresent | paginate: { itemsPerPage: 6, currentPage: p }" (click)="selectedCar($event)">
+		<div class="details-left">
+			<img src='{{car.photo}}' />
+		</div>
+		<div class="details-right">
+			<div class="block-row">
+				<h1>{{car.name}}</h1>
+				<p><span>&#8377;</span>{{car.price}}</p>
+			</div>
+			<div class="block">
+				<p>
+					<i class="material-icons">time_to_leave</i>
+					{{car.car_Type}}
+				</p>
+				<p>
+					<i class="material-icons">local_gas_station</i>
+					{{car.fuel_Type}}
+				</p>
+				<p>
+					<i class="material-icons">event_seat</i>
+					{{car.seats}} Seater
+				</p>
+			</div>
+			<div class="block">
+				<p><span>Transmission:</span>{{car.transmission}}</p>
+			</div>
+			<div class="block">
+				<p><span>Available on</span>{{car.availability}}</p>
+			</div>
+		</div>
+	</div>
+	<pagination-controls (pageChange)="p = $event" *ngIf="carDataToPresent"></pagination-controls>
+</div>
