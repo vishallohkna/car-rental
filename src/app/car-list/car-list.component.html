@@ -1,8 +1,48 @@
+<app-loader *ngIf="blockUI"></app-loader>
 <div class="car-search-box">
 	<app-search-box></app-search-box>
 </div>
-<div class="car-list">
-	<div class="car-details" *ngFor="let car of carDataToPresent | paginate: { itemsPerPage: 6, currentPage: p }" (click)="selectedCar($event)">
+<div class="car-list" *ngIf="carDataToPresent">
+	<div class="input-search">
+		<i class="material-icons">search</i>
+		<input [(ngModel)]="searchText" placeholder="Search">
+	</div>
+	<div class="filter-section">
+		<mat-form-field>
+    		<mat-label>Transmission Type</mat-label>
+			<mat-select [(ngModel)]="filter_transmission_type" (selectionChange)="filterData(filter_transmission_type, filter_car_type, filter_fuel_type)">
+				<mat-option value="Any">Any</mat-option>
+  				<mat-option value="Manual">Manual</mat-option>
+  				<mat-option value="Automatic">Automatic</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-form-field>
+    		<mat-label>Car Type</mat-label>
+			<mat-select [(ngModel)]="filter_car_type" (selectionChange)="filterData(filter_transmission_type, filter_car_type, filter_fuel_type)">
+				<mat-option value="Any">Any</mat-option>
+  				<mat-option value="Hatchback">Hatchback</mat-option>
+  				<mat-option value="Sedan">Sedan</mat-option>
+  				<mat-option value="SUV">SUV</mat-option>
+  				<mat-option value="Mini SUV">Mini SUV</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-form-field>
+    		<mat-label>Fuel Type</mat-label>
+			<mat-select [(ngModel)]="filter_fuel_type" (selectionChange)="filterData(filter_transmission_type, filter_car_type, filter_fuel_type)">
+				<mat-option value="Any">Any</mat-option>
+  				<mat-option value="Petrol">Petrol</mat-option>
+  				<mat-option value="Diesel">Diesel</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-form-field>
+    		<mat-label>Sort By</mat-label>
+			<mat-select [(ngModel)]="sort_by_price" (selectionChange)="sortDataByPrice(sort_by_price)">
+				<mat-option value="None">None</mat-option>
+  				<mat-option value="Price">Price</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div class="car-details" *ngFor="let car of carDataToPresent | paginate: { itemsPerPage: 6, currentPage: p } | filter: searchText" (click)="selectedCar($event)" [ngClass]="{'disabled': !car.availability.includes(this.startDate | date : 'EEE')}">
 		<div class="details-left">
 			<img src='{{car.photo}}' />
 		</div>
@@ -29,9 +69,12 @@
 				<p><span>Transmission:</span>{{car.transmission}}</p>
 			</div>
 			<div class="block">
-				<p><span>Available on</span>{{car.availability}}</p>
+				<p *ngIf="car.availability.includes(this.startDate | date : 'EEE')">
+					<span>Available on</span>{{car.availability}}
+				</p>
+				<label *ngIf="!car.availability.includes(this.startDate | date : 'EEE')" class="notAvailableLabel">NOT AVAILABLE</label>
 			</div>
 		</div>
 	</div>
-	<pagination-controls (pageChange)="p = $event" *ngIf="carDataToPresent"></pagination-controls>
+	<pagination-controls (pageChange)="p = $event" *ngIf="searchText == null || searchText == ''"></pagination-controls>
 </div>

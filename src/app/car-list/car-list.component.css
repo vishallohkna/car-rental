@@ -10,6 +10,35 @@
     width: 80%;
     margin: auto;
 }
+.car-list .input-search{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(0,0,0,0.02);
+    margin: 20px 0 5px 0;
+    padding: 10px;
+}
+.car-list .input-search i{
+    color: #293031;
+    font-size: 20px;
+}
+.car-list .input-search input{
+    width: 100%;
+    border: 0px;
+    background: transparent;
+    padding-left: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #293031;
+    outline: none;
+}
+.car-list .filter-section{
+    margin: 20px 0 0 0;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+}
 .car-details{
 	display: flex;
     flex-flow: row;
@@ -28,6 +57,16 @@
 }
 .car-details.active{
 	border: 1px solid #ea596a;
+}
+.car-details.disabled{
+    opacity: 0.8;
+}
+.car-details.disabled:hover{
+    cursor: auto;
+    box-shadow: 0 2px 6px rgba(195,195,195,0.26);
+}
+.car-details.disabled.active{
+    border: 1px solid transparent;
 }
 .car-details .details-left{
 	display: flex;
@@ -55,7 +94,7 @@
 }
 .car-details .details-right .block-row p{
 	font-size: 26px;
-	color: #ea596a;
+	color: #EA596A;
 }
 .car-details .details-right .block{
 	width: 50%;
@@ -72,11 +111,15 @@
 .car-details .details-right .block p i{
 	font-size: 20px;
 	margin-right: 3px;
-	color: #ea596a;
+	color: #EA596A;
 }
 .car-details .details-right .block p span{
 	margin-right: 3px;
-	color: #ea596a;
+	color: #EA596A;
+}
+.car-details .details-right .block label.notAvailableLabel{
+    font-size: 30px;
+    color: #EA596A;
 }
 .ngx-pagination{
 	padding: 0;

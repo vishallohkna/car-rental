@@ -9,6 +9,7 @@ import { DataExchangeService } from '../services/data-exchange.service';
   templateUrl: './search-box.component.html',
   styleUrls: ['./search-box.component.css']
 })
+
 export class SearchBoxComponent implements OnInit {
 
   constructor(private api: ApiService,
@@ -29,8 +30,8 @@ export class SearchBoxComponent implements OnInit {
   	this.api.getCarData().subscribe(
   	(response) => {
   		this.carData = response;
-  		this.extractLocations();
-      this.dataService.setCarData(this.carData);
+      this.dataService.setCarData(response);
+      this.extractLocations();
   	},
   	(error) => {
   		console.log(error);
@@ -45,6 +46,9 @@ export class SearchBoxComponent implements OnInit {
     		this.locations.push(object.location);
     });
     this.selectedLocation = this.locations[0];
+    var url = window.location.href.split('/')[3];
+    if (url === 'car-list')
+      this.updateCarList();
   }
 
   updateCarList(){

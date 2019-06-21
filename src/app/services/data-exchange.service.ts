@@ -12,7 +12,6 @@ export class DataExchangeService {
   public carDataValue: string;
   @Output() carData: EventEmitter<any> = new EventEmitter();
   setCarData(value: any){
-    console.log(value);
     this.carDataValue = value;
     this.carData.emit(value);
   }

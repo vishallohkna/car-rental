@@ -13,6 +13,10 @@ import { HeaderComponent } from './header/header.component';
 import { CarListComponent } from './car-list/car-list.component';
 import { CarSearchComponent } from './car-search/car-search.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import { LoaderComponent } from './loader/loader.component';
+
+// Custom Pipe
+import { FilterPipe } from './filter.pipe';
 
 // Routes
 const routes: Routes = [
@@ -27,7 +31,9 @@ const routes: Routes = [
     HeaderComponent,
     CarListComponent,
     CarSearchComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    LoaderComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
